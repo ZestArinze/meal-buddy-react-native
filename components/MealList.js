@@ -3,11 +3,12 @@ import { StyleSheet, FlatList, View } from "react-native";
 import MealItem from "./MealItem";
 
 const MealList = (props) => {
-  const gotoMealDetail = (mealId) => {
+  const gotoMealDetail = (mealId, mealtTitle) => {
     props.navigation.navigate({
       routeName: "MealDetail",
       params: {
         mealId: mealId,
+        mealtTitle: mealtTitle,
       },
     });
   };
@@ -17,7 +18,11 @@ const MealList = (props) => {
       <MealItem
         title={itemData.item.title}
         image={itemData.item.imageUrl}
-        onSelectMeal={gotoMealDetail.bind(this, itemData.item.id)}
+        onSelectMeal={gotoMealDetail.bind(
+          this,
+          itemData.item.id,
+          itemData.item.title
+        )}
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
