@@ -33,6 +33,14 @@ const defaultStackNavOptions = {
   },
 };
 
+const navOptions = {
+  headerStyle: {
+    backgroundColor: Platform.OS === "android" ? Colors.colorPrimary : "",
+  },
+  headerTintColor:
+    Platform.OS === "android" ? Colors.colorWhite : Colors.colorPrimary,
+};
+
 const MealsNavigator = createStackNavigator(
   {
     Categories: {
@@ -41,10 +49,12 @@ const MealsNavigator = createStackNavigator(
     CategoryMeals: {
       screen: CategoryMealsScreen,
     },
-    MealDetail: MealDetailScreen,
+    MealDetail: {
+      screen: MealDetailScreen,
+    },
   },
   {
-    defaultNavigationOptions: defaultStackNavOptions,
+    defaultNavigationOptions: navOptions,
   }
 );
 
