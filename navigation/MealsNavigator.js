@@ -53,9 +53,7 @@ const MealsNavigator = createStackNavigator(
       screen: MealDetailScreen,
     },
   },
-  {
-    defaultNavigationOptions: navOptions,
-  }
+  { defaultNavigationOptions: defaultStackNavOptions }
 );
 
 const FavNavigator = createStackNavigator(
